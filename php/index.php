@@ -16,6 +16,9 @@ if ($path == '/status') {
     exit;
 }
 
+echo getenv('DB_HOST', true);
+exit;
+
 $dbconn = pg_connect(
     "host=" . getenv('DB_HOST', true) ?: 'localhost' .
     " port=" . getenv('DB_PORT', true) ?: '5432' .
