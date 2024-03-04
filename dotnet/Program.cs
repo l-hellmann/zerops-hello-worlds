@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuration for the database connection string
 string dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
 string dbPort = Environment.GetEnvironmentVariable("DB_PORT") ?? "5432";
 string dbUser = Environment.GetEnvironmentVariable("DB_USER") ?? "user";
@@ -18,24 +17,24 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connect
 
 var app = builder.Build();
 
-// Ensure the database is created and the required tables are set up
 using (var scope = app.Services.CreateScope())
 {
-    var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<AppDbContext>();
-
-    // Automatically create the database and tables
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     dbContext.Database.EnsureCreated();
 
-    // Check for the Entries table and create it if it doesn't exist
     var connection = dbContext.Database.GetDbConnection();
     await connection.OpenAsync();
     var command = connection.CreateCommand();
-    command.CommandText = "SELECT to_regclass('public.\"Entries\"');";
-    var result = await command.ExecuteScalarAsync();
-    if (result == DBNull.Value)
+
+    command.CommandText = @"
+        SELECT EXISTS (
+            SELECT FROM information_schema.tables
+            WHERE table_schema = 'public' AND table_name = 'Entries'
+        );";
+    var exists = (bool)await command.ExecuteScalarAsync();
+    if (!exists)
     {
-        command.CommandText = "CREATE TABLE public.\"Entries\" (Id SERIAL PRIMARY KEY, Data TEXT NOT NULL);";
+        command.CommandText = "CREATE TABLE public.\"Entries\" (\"Id\" SERIAL PRIMARY KEY, \"Data\" TEXT NOT NULL);";
         await command.ExecuteNonQueryAsync();
     }
 }
