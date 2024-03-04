@@ -1,11 +1,25 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder, http::StatusCode};
+use actix_web::{web, App, HttpResponse, HttpServer, Responder, http::StatusCode, error::ResponseError};
 use dotenv::dotenv;
 use std::env;
+use std::fmt;
 use tokio_postgres::NoTls;
 use uuid::Uuid;
 
-// Define a custom error type that wraps tokio_postgres::Error
+#[derive(Debug)] // Automatically derive Debug trait
 struct AppError(tokio_postgres::Error);
+
+impl fmt::Display for AppError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Database error: {}", self.0)
+    }
+}
+
+impl ResponseError for AppError {
+    fn status_code(&self) -> StatusCode {
+        // You can decide to return different status codes based on the error
+        StatusCode::INTERNAL_SERVER_ERROR
+    }
+}
 
 impl From<tokio_postgres::Error> for AppError {
     fn from(err: tokio_postgres::Error) -> AppError {
@@ -13,16 +27,7 @@ impl From<tokio_postgres::Error> for AppError {
     }
 }
 
-impl actix_web::error::ResponseError for AppError {
-    fn status_code(&self) -> StatusCode {
-        // You can decide to return different status codes based on the error
-        StatusCode::INTERNAL_SERVER_ERROR
-    }
-}
-
-async fn add_entry() -> Result<HttpResponse, actix_web::Error> {
-    let path = "/"; // Define the path you are handling
-
+async fn add_entry() -> Result<HttpResponse, AppError> {
     let db_host = env::var("DB_HOST").unwrap_or_else(|_| "localhost".to_string());
     let db_port = env::var("DB_PORT").unwrap_or_else(|_| "5432".to_string());
     let db_user = env::var("DB_USER").expect("DB_USER must be set");
