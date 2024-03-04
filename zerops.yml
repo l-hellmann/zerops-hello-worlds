@@ -48,7 +48,7 @@ zerops:
         - ./php/~/index.php
         - ./php/~/vendor
     run:
-      docroot: ./
+      documentRoot: ./
       healthCheck:
         httpGet:
           port: 80
