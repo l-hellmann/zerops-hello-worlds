@@ -16,13 +16,6 @@ if ($path == '/status') {
     exit;
 }
 
-echo "host=" . (getenv('DB_HOST') ?: 'localhost') .
-     " port=" . (getenv('DB_PORT') ?: '5432') .
-     " dbname=" . (getenv('DB_NAME') ?: 'mydatabase') .
-     " user=" . (getenv('DB_USER') ?: 'myuser') .
-     " password=" . (getenv('DB_PASS') ?: 'mypassword');
-exit;
-
 $dbconn = pg_connect(
     "host=" . getenv('DB_HOST', true) ?: 'localhost' .
     " port=" . getenv('DB_PORT', true) ?: '5432' .
