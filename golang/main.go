@@ -15,10 +15,8 @@ import (
 var db *sql.DB
 
 func init() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	// Attempt to load .env file; ignore error if file doesn't exist
+	_ = godotenv.Load() // Error ignored on purpose
 
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		os.Getenv("DB_HOST"), os.Getenv("DB_PORT"), os.Getenv("DB_USER"), os.Getenv("DB_PASS"), os.Getenv("DB_NAME"))
@@ -29,6 +27,7 @@ func init() {
 		log.Fatalf("Failed to connect to database: %v", errDB)
 	}
 
+	// Check if the table exists and create it if not
 	_, errTable := db.Exec(`CREATE TABLE IF NOT EXISTS entries (id SERIAL PRIMARY KEY, data TEXT NOT NULL);`)
 	if errTable != nil {
 		log.Fatalf("Failed to ensure table exists: %v", errTable)
