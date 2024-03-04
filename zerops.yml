@@ -2,6 +2,8 @@ zerops:
   - setup: nodejs20
     build:
       base: nodejs@20
+      prepareCommands:
+        - npm install -g typescript
       buildCommands:
         - |
           cd nodejs
