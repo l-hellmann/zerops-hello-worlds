@@ -3,5 +3,4 @@
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Debug/net6.0/dotnet.AssemblyInfoInputs.cache
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Debug/net6.0/dotnet.AssemblyInfo.cs
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Debug/net6.0/dotnet.csproj.CoreCompileInputs.cache
-/Users/fxck/www/zerops-hello-worlds/dotnet/obj/Debug/net6.0/dotnet.MvcApplicationPartsAssemblyInfo.cs
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Debug/net6.0/dotnet.MvcApplicationPartsAssemblyInfo.cache

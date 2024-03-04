@@ -3,7 +3,6 @@
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.AssemblyInfoInputs.cache
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.AssemblyInfo.cs
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.csproj.CoreCompileInputs.cache
-/Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.MvcApplicationPartsAssemblyInfo.cs
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.MvcApplicationPartsAssemblyInfo.cache
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/appsettings.Development.json
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/appsettings.json
@@ -12,17 +11,11 @@
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/dotnet.runtimeconfig.json
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/dotnet.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/dotnet.pdb
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Humanizer.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Microsoft.EntityFrameworkCore.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Microsoft.EntityFrameworkCore.Design.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Microsoft.OpenApi.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Npgsql.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Swashbuckle.AspNetCore.Swagger.dll
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
-/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/staticwebassets.build.json
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/staticwebassets.development.json
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/scopedcss/bundle/dotnet.styles.css
@@ -32,3 +25,4 @@
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.pdb
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/dotnet.genruntimeconfig.cache
 /Users/fxck/www/zerops-hello-worlds/dotnet/obj/Release/net6.0/ref/dotnet.dll
+/Users/fxck/www/zerops-hello-worlds/dotnet/bin/Release/net6.0/global.json
