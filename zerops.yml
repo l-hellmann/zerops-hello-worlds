@@ -20,3 +20,18 @@ zerops:
         httpGet:
           port: 80
           path: /status
+  - setup: golang1
+    build:
+      base: go@1
+      buildCommands:
+        - |
+          cd golang
+          go build -o golang ./...
+    deploy:
+      - ./golang/~/golang
+    run:
+      start: ./golang
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
