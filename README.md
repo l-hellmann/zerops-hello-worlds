@@ -16,7 +16,7 @@ services:
     ports:
       - port: 8080
         httpSupport: true
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     verticalAutoscaling:
       minVCpu: 1
@@ -35,7 +35,7 @@ services:
       DB_PASS: ${db_password}
       DB_PORT: "5432"
       DB_USER: ${db_user}
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     nginxConfig: |
       server {
@@ -86,7 +86,7 @@ services:
       DB_PASS: ${db_password}
       DB_PORT: "5432"
       DB_USER: ${db_user}
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     verticalAutoscaling:
       minVCpu: 1
@@ -109,7 +109,7 @@ services:
     ports:
       - port: 3000
         httpSupport: true
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     verticalAutoscaling:
       minVCpu: 1
@@ -131,7 +131,7 @@ services:
     ports:
       - port: 8080
         httpSupport: true
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     verticalAutoscaling:
       minVCpu: 1
@@ -154,7 +154,7 @@ services:
     ports:
       - port: 5000
         httpSupport: true
-    enableZeropsSubdomain: true
+    enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     verticalAutoscaling:
       minVCpu: 1
