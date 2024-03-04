@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 
-app.get('/', async (req, res) => {
+app.get('/', async (_, res) => {
   const client = await connectDB();
   const data = uuidv4();
 
@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   await client.end();
 });
 
-app.get('/status', (req, res) => {
+app.get('/status', (_, res) => {
   res.status(200).send({ status: 'UP' });
 });
 
