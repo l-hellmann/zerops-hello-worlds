@@ -2,3 +2,4 @@
 php/vendor
 dotnet/bin
 dotnet/publish
+dotnet/obj
