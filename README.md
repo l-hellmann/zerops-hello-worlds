@@ -168,6 +168,7 @@ services:
   - hostname: db
     type: postgresql@14
     mode: NON_HA
+    priority: 1
     verticalAutoscaling:
       minVCpu: 1
       maxVCpu: 20
