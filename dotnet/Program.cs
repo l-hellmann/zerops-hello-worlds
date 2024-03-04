@@ -29,12 +29,12 @@ using (var scope = app.Services.CreateScope())
     command.CommandText = @"
         SELECT EXISTS (
             SELECT FROM information_schema.tables
-            WHERE table_schema = 'public' AND table_name = 'Entries'
+            WHERE table_schema = 'public' AND table_name = 'entries'
         );";
     var exists = (bool)await command.ExecuteScalarAsync();
     if (!exists)
     {
-        command.CommandText = "CREATE TABLE public.\"Entries\" (\"Id\" SERIAL PRIMARY KEY, \"Data\" TEXT NOT NULL);";
+        command.CommandText = "CREATE TABLE public.\"entries\" (\"Id\" SERIAL PRIMARY KEY, \"Data\" TEXT NOT NULL);";
         await command.ExecuteNonQueryAsync();
     }
 }
