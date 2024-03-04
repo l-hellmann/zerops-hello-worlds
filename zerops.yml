@@ -20,6 +20,7 @@ zerops:
         httpGet:
           port: 80
           path: /status
+
   - setup: golang1
     build:
       base: go@1
@@ -35,3 +36,21 @@ zerops:
         httpGet:
           port: 80
           path: /status
+
+  - setup: phpapache81
+    build:
+      base: php@8.1
+      buildCommands:
+        - |
+          cd php
+          composer update
+    deploy:
+      - ./php/~/index.php
+      - ./php/~/vendor
+    run:
+      docroot: ./
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
+
