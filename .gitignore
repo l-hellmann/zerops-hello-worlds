@@ -1,2 +1,4 @@
 .env
 php/vendor
+dotnet/bin
+dotnet/publish
