@@ -87,7 +87,7 @@ zerops:
           port: 80
           path: /status
 
-  - setup: dotnet6
+  - setup: dotnet60
     build:
       base: dotnet@6
       buildCommands:
