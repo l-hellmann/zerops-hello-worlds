@@ -16,7 +16,7 @@ zerops:
         - ./nodejs/~/package.json
     run:
       start: npm run start:prod
-      healthCheck:
-        httpGet:
-          port: 80
-          path: /status
+      # healthCheck:
+      #   httpGet:
+      #     port: 80
+      #     path: /status
