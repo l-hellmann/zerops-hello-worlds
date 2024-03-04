@@ -27,8 +27,8 @@ zerops:
         - |
           cd golang
           go build -o golang ./...
-    deploy:
-      - ./golang/~/golang
+      deploy:
+        - ./golang/~/golang
     run:
       start: ./golang
       healthCheck:
