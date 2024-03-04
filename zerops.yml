@@ -46,6 +46,7 @@ zerops:
           composer install --optimize-autoloader --no-dev
       deploy:
         - ./php/~/index.php
+        - ./php/~/.htaccess
         - ./php/~/vendor
     run:
       documentRoot: ./
