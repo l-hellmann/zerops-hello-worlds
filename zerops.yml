@@ -43,10 +43,10 @@ zerops:
       buildCommands:
         - |
           cd php
-          composer update
-    deploy:
-      - ./php/~/index.php
-      - ./php/~/vendor
+          composer install --optimize-autoloader --no-dev
+      deploy:
+        - ./php/~/index.php
+        - ./php/~/vendor
     run:
       docroot: ./
       healthCheck:
