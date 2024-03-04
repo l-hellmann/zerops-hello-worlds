@@ -71,4 +71,21 @@ zerops:
           port: 80
           path: /status
 
+  - setup: rust1
+    build:
+      base: rust@1
+      buildCommands:
+        - |
+          cd rust
+          cargo build --release
+      deploy:
+        - ./rust/target/release/~/rust
+    run:
+      start: ./rust
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
+
+
 
