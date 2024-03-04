@@ -17,11 +17,11 @@ if ($path == '/status') {
 }
 
 $dbconn = pg_connect(
-    "host=" . getenv('DB_HOST', true) ?: 'localhost' .
-    " port=" . getenv('DB_PORT', true) ?: '5432' .
-    " dbname=" . getenv('DB_NAME', true) ?: 'mydatabase' .
-    " user=" . getenv('DB_USER', true) ?: 'myuser' .
-    " password=" . getenv('DB_PASS', true) ?: 'mypassword'
+  "host=" . (getenv('DB_HOST') ?: 'localhost') . " " .
+  "port=" . (getenv('DB_PORT') ?: '5432') . " " .
+  "dbname=" . (getenv('DB_NAME') ?: 'mydatabase') . " " .
+  "user=" . (getenv('DB_USER') ?: 'myuser') . " " .
+  "password=" . (getenv('DB_PASS') ?: 'mypassword')
 ) or die('Could not connect: ' . pg_last_error());
 
 pg_query($dbconn, "CREATE TABLE IF NOT EXISTS entries (id SERIAL PRIMARY KEY, data TEXT NOT NULL);");
