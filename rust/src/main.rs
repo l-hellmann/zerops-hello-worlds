@@ -1,26 +1,27 @@
 use actix_web::{web, App, HttpResponse, HttpServer, Responder, http::StatusCode, error::ResponseError};
 use dotenv::dotenv;
-use std::env;
-use std::fmt;
+use std::{env, fmt};
 use tokio_postgres::NoTls;
 use uuid::Uuid;
 
-#[derive(Debug)] // Automatically derive Debug trait
+#[derive(Debug)] // Automatically derive Debug trait for AppError
 struct AppError(tokio_postgres::Error);
 
+// Implement std::fmt::Display for AppError to provide human-readable error messages
 impl fmt::Display for AppError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "Database error: {}", self.0)
     }
 }
 
+// Implement ResponseError for AppError to convert it into an Actix-web error
 impl ResponseError for AppError {
     fn status_code(&self) -> StatusCode {
-        // You can decide to return different status codes based on the error
         StatusCode::INTERNAL_SERVER_ERROR
     }
 }
 
+// Convert tokio_postgres::Error into AppError
 impl From<tokio_postgres::Error> for AppError {
     fn from(err: tokio_postgres::Error) -> AppError {
         AppError(err)
