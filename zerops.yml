@@ -7,6 +7,7 @@ zerops:
       buildCommands:
         - |
           cd nodejs
+          export NODE_ENV=development
           npm i
           npm run build
       deploy:
