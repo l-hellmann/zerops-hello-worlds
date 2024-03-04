@@ -29,7 +29,6 @@ func init() {
 		log.Fatalf("Failed to connect to database: %v", errDB)
 	}
 
-	// Check if the table exists and create it if not
 	_, errTable := db.Exec(`CREATE TABLE IF NOT EXISTS entries (id SERIAL PRIMARY KEY, data TEXT NOT NULL);`)
 	if errTable != nil {
 		log.Fatalf("Failed to ensure table exists: %v", errTable)
@@ -42,7 +41,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000" // Default port if not specified
+		port = "8080"
 	}
 	log.Printf("Server starting on port %s\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
