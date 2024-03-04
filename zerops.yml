@@ -11,12 +11,12 @@ zerops:
           npm i
           npm run build
       deploy:
-        - ./nodejs/~/dist
-        - ./nodejs/~/node_modules
-        - ./nodejs/~/package.json
+        - ./nodejs/dist
+        - ./nodejs/node_modules
+        - ./nodejs/package.json
     run:
       start: npm run start:prod
-      # healthCheck:
-      #   httpGet:
-      #     port: 80
-      #     path: /status
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
