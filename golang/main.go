@@ -45,6 +45,11 @@ func main() {
 }
 
 func addEntry(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method is not supported.", http.StatusNotFound)
 		return
