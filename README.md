@@ -4,6 +4,9 @@
 ```yaml
 project:
   name: zerops-hello-worlds
+  tags:
+    - zerops
+    - hello-worlds
 services:
   - hostname: rust1
     type: rust@1
@@ -18,15 +21,8 @@ services:
         httpSupport: true
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
+
   - hostname: phpnginx81
     type: php-nginx@8.1+1.22
     envSecrets:
@@ -69,16 +65,9 @@ services:
           access_log syslog:server=unix:/dev/log,facility=local1 default_short;
           error_log syslog:server=unix:/dev/log,facility=local1;
       }
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
-  - hostname: phpapache81
+
+- hostname: phpapache81
     type: php-apache@8.1+2.4
     envSecrets:
       DB_HOST: db
@@ -88,15 +77,8 @@ services:
       DB_USER: ${db_user}
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
+
   - hostname: nodejs20
     type: nodejs@20
     envSecrets:
@@ -111,15 +93,8 @@ services:
         httpSupport: true
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 5
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
+
   - hostname: golang1
     type: go@1
     envSecrets:
@@ -133,16 +108,9 @@ services:
         httpSupport: true
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
-  - hostname: dotnet60
+
+- hostname: dotnet60
     type: dotnet@6
     envSecrets:
       ASPNETCORE_URLS: http://*:5000
@@ -156,25 +124,17 @@ services:
         httpSupport: true
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 0.25
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
     minContainers: 1
-    maxContainers: 6
+  - hostname: adminer
+    type: php-apache@8.0+2.4
+    buildFromGit: https://github.com/zeropsio/recipe-adminer@main
+    enableSubdomainAccess: true
+    minContainers: 1
+    maxContainers: 1
+
   - hostname: db
     type: postgresql@14
     mode: NON_HA
     priority: 1
-    verticalAutoscaling:
-      minVCpu: 1
-      maxVCpu: 20
-      minRam: 1
-      maxRam: 32
-      minDisk: 1
-      maxDisk: 100
 ```
 

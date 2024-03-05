@@ -8,7 +8,14 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Entry>().ToTable("entries");
+        modelBuilder.Entity<Entry>()
+            .ToTable("entries")
+            .Property(e => e.Id)
+            .HasColumnName("id");
+
+        modelBuilder.Entity<Entry>()
+            .Property(e => e.Data)
+            .HasColumnName("data");
     }
 }
 
