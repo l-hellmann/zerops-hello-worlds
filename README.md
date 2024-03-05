@@ -128,6 +128,22 @@ services:
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     minContainers: 1
 
+  - hostname: python39
+    type: python@3.9
+    envSecrets:
+      DB_HOST: db
+      DB_NAME: db
+      DB_PASS: ${db_password}
+      DB_PORT: "5432"
+      DB_USER: ${db_user}
+    ports:
+      - port: 5000
+        httpSupport: true
+    enableSubdomainAccess: true
+    # buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    minContainers: 1
+    maxContainers: 6
+
   - hostname: adminer
     type: php-apache@8.0+2.4
     buildFromGit: https://github.com/zeropsio/recipe-adminer@main
