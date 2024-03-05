@@ -105,8 +105,6 @@ zerops:
 
   - setup: python39
     build:
-      prepareCommands:
-        - echo "test"
       deploy:
         - python/app.py
       addToRunPrepare:
