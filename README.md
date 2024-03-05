@@ -1,12 +1,9 @@
-# Zerops Hello Worlds
-
-## import yaml
-```yaml
 project:
   name: zerops-hello-worlds
   tags:
     - zerops
     - hello-worlds
+
 services:
   - hostname: rust1
     type: rust@1
@@ -67,7 +64,7 @@ services:
       }
     minContainers: 1
 
-- hostname: phpapache81
+  - hostname: phpapache81
     type: php-apache@8.1+2.4
     envSecrets:
       DB_HOST: db
@@ -137,5 +134,3 @@ services:
     type: postgresql@14
     mode: NON_HA
     priority: 1
-```
-
