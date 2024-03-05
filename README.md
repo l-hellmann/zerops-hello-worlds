@@ -1,3 +1,8 @@
+# Zerops Hello Worlds
+
+## import yaml
+
+```yaml
 project:
   name: zerops-hello-worlds
   tags:
@@ -134,3 +139,5 @@ services:
     type: postgresql@14
     mode: NON_HA
     priority: 1
+```
+
