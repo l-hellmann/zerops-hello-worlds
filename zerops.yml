@@ -102,3 +102,18 @@ zerops:
         httpGet:
           port: 80
           path: /status
+
+  - setup: python39
+    build:
+      deploy:
+        - python/app.py
+      addToRunPrepare:
+        - python/requirements.txt
+    run:
+      prepare:
+        - python3 -m pip install --ignore-installed -r requirements.txt
+      start: python3 app.py
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
