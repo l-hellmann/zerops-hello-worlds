@@ -18,7 +18,7 @@ zerops:
       start: npm run start:prod
       healthCheck:
         httpGet:
-          port: 80
+          port: 3000
           path: /status
 
   - setup: golang1
@@ -34,7 +34,7 @@ zerops:
       start: ./golang
       healthCheck:
         httpGet:
-          port: 80
+          port: 8080
           path: /status
 
   - setup: phpapache81
@@ -84,7 +84,7 @@ zerops:
       start: ./rust
       healthCheck:
         httpGet:
-          port: 80
+          port: 8080
           path: /status
 
   - setup: dotnet60
@@ -100,7 +100,7 @@ zerops:
       start: dotnet ./dotnet.dll
       healthCheck:
         httpGet:
-          port: 80
+          port: 5000
           path: /status
 
   - setup: python39
@@ -115,5 +115,5 @@ zerops:
       start: python3 app.py
       healthCheck:
         httpGet:
-          port: 80
+          port: 8000
           path: /status
