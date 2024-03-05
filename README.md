@@ -110,7 +110,7 @@ services:
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     minContainers: 1
 
-- hostname: dotnet60
+  - hostname: dotnet60
     type: dotnet@6
     envSecrets:
       ASPNETCORE_URLS: http://*:5000
@@ -125,6 +125,7 @@ services:
     enableSubdomainAccess: true
     buildFromGit: https://github.com/fxck/zerops-hello-worlds
     minContainers: 1
+
   - hostname: adminer
     type: php-apache@8.0+2.4
     buildFromGit: https://github.com/zeropsio/recipe-adminer@main
