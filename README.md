@@ -1,7 +1,5 @@
 # Zerops Hello Worlds
 
-## import yaml
-
 ```yaml
 project:
   name: zerops-hello-worlds
