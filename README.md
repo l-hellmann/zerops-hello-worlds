@@ -138,7 +138,7 @@ services:
       - port: 5000
         httpSupport: true
     enableSubdomainAccess: true
-    # buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/fxck/zerops-hello-worlds
     minContainers: 1
     maxContainers: 6
 
