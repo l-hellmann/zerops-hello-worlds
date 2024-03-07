@@ -111,7 +111,7 @@ zerops:
         - python/requirements.txt
     run:
       prepareCommands:
-        - python3 -m pip install --ignore-installed -r requirements.txt
+        - python3 -m pip install --ignore-installed -r python/requirements.txt
       start: python3 app.py
       healthCheck:
         httpGet:
