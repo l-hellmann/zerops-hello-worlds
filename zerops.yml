@@ -93,6 +93,7 @@ zerops:
       buildCommands:
         - |
           cd dotnet
+          dotnet --list-sdks
           dotnet publish -c Release -o publish
       deploy:
         - ./dotnet/publish/~
