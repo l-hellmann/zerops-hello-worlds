@@ -106,13 +106,13 @@ zerops:
   - setup: python39
     build:
       deploy:
-        - python/app.py
+        - python/~app.py
       addToRunPrepare:
         - python/requirements.txt
     run:
       prepareCommands:
         - python3 -m pip install --ignore-installed -r python/requirements.txt
-      start: python3 python/app.py
+      start: python3 app.py
       healthCheck:
         httpGet:
           port: 8000
