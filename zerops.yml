@@ -93,7 +93,6 @@ zerops:
       buildCommands:
         - |
           cd dotnet
-          dotnet --list-sdks
           dotnet publish -c Release -o publish
       deploy:
         - ./dotnet/publish/~
@@ -113,7 +112,7 @@ zerops:
     run:
       prepareCommands:
         - python3 -m pip install --ignore-installed -r python/requirements.txt
-      start: python3 app.py
+      start: python3 python/app.py
       healthCheck:
         httpGet:
           port: 8000
